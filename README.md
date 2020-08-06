@@ -6,6 +6,11 @@ $ git clone git@github.com:dearshrewdwit/boris-bikes-demo.git && cd boris-bikes-
 $ bundle install
 ```
 
+#### Screen Recordings
+- [ ] [Part 1](https://youtu.be/hbQq5uHIceQ)
+- [ ] [Part 2](https://youtu.be/YEBA9NOS6ec)
+- [ ] [Part 3](https://youtu.be/x_nwIpFRlGc)
+
 #### User Stories
 ```
 # Part 1
@@ -66,10 +71,10 @@ Bike | working?, report | boolean
 **Status** | **Public Method** | **Scenario** | input | output
 -|-|-|-|-
 ✅ | DockingStation#release | When there are working bikes | release() | bike
-✅  | DockingStation#release | When there are none | release() | "Sorry, none available"
+✅ | DockingStation#release | When there are none | release() | "Sorry, none available"
 ✅ | DockingStation#release | When there are none working | release() | "Sorry, all are broken"
-✅  | DockingStation#dock | below capacity | dock(bike) | [bike]
-✅  | DockingStation#dock | at or above capacity | dock(bike) | "Sorry, full!"
+✅ | DockingStation#dock | below capacity | dock(bike) | [bike]
+✅ | DockingStation#dock | at or above capacity | dock(bike) | "Sorry, full!"
 ✅ | Bike#working? | when it is working | working? | true
 ✅ | Bike#working? | when it is broken | working? | false
 ✅ | Bike#report | when it is working | report | false
