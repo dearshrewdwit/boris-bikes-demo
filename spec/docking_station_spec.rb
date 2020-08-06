@@ -72,6 +72,22 @@ it 'can release a bike' do
   assert_equals(result, bike)
 end
 
+it 'only releases bikes that are working' do
+  # set up
+  docking_station = DockingStation.new
+  working_bike = Bike.new
+  broken_bike = Bike.new
+  broken_bike.report
+  docking_station.dock(working_bike)
+  docking_station.dock(broken_bike)
+
+  # execute
+  result = docking_station.release
+
+  # verify
+  assert_equals(result, working_bike)
+end
+
 # As a member of the public,
 # So that I am not confused and charged unnecessarily,
 # I’d like docking stations not to release bikes when there are none available.
@@ -84,4 +100,17 @@ it 'will not release a bike, when there are none' do
   result = docking_station.release
   # verify
   assert_equals(result, "Sorry, none available")
+end
+
+it 'will not release a bike, when there are no working bikes' do
+  # set up
+  docking_station = DockingStation.new(capacity: 1)
+  bike = Bike.new
+  bike.report
+  docking_station.dock(bike)
+
+  # execute
+  result = docking_station.release
+  # verify
+  assert_equals(result, "Sorry, all are broken")
 end

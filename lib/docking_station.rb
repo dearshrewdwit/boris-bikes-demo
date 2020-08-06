@@ -15,11 +15,16 @@ class DockingStation
 
   def release
     return "Sorry, none available" if empty?
+    return "Sorry, all are broken" if all_broken?
 
-    @bikes.pop
+    @bikes.find(&:working?)
   end
 
   private
+
+  def all_broken?
+    bikes.none?(&:working?)
+  end
 
   def empty?
     bikes.length == 0
