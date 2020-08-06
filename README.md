@@ -2,7 +2,7 @@
 
 Clone and install dependencies
 ```sh
-$ git clone && cd boris-bikes-demo
+$ git clone git@github.com:dearshrewdwit/boris-bikes-demo.git && cd boris-bikes-demo
 $ bundle install
 ```
 
