@@ -72,6 +72,19 @@ it 'can release a bike' do
   assert_equals(result, bike)
 end
 
+it 'releasing a bike removes it' do
+  # set up
+  docking_station = DockingStation.new
+  bike = Bike.new
+  docking_station.dock(bike)
+
+  # execute
+  docking_station.release
+  result = docking_station.bikes
+  # verify
+  assert_equals(result, [])
+end
+
 it 'only releases bikes that are working' do
   # set up
   docking_station = DockingStation.new

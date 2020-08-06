@@ -17,7 +17,8 @@ class DockingStation
     return "Sorry, none available" if empty?
     return "Sorry, all are broken" if all_broken?
 
-    @bikes.find(&:working?)
+    bike = bikes.find(&:working?)
+    bikes.delete(bike)
   end
 
   private
