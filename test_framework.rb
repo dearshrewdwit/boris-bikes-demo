@@ -1,13 +1,20 @@
+require 'colorize'
+
+COLOURS = {
+  true => :green,
+  false => :red
+}
+
 def assert_equals(val1,val2)
  val1 == val2
 end
 
 def it(description, &block)
-  print "#{description}: "
-  calculator = block.call
-  if calculator == true
-    puts "Its OK"
+  assertion = block.call
+  result = if assertion
+    "PASSED"
   else
-    puts "They do not match"
+    "FAILED"
   end
+  puts "#{description}: #{result}".send(COLOURS[assertion])
 end
